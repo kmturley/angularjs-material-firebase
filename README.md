@@ -1,4 +1,4 @@
-# angular-material-firebase
+# angularjs-material-firebase
 
 Example using the following libraries:
 * AngularJS
