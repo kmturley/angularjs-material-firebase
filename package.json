@@ -1,7 +1,7 @@
 {
-  "name": "angular-material-firebase",
+  "name": "angularjs-material-firebase",
   "version": "1.0.0",
-  "description": "Angular Material Design Firebase example",
+  "description": "AngularJS Material Design Firebase example",
   "main": "index.js",
   "scripts": {
     "build": "gulp build",
@@ -14,7 +14,7 @@
     "url": "git+https://github.com/kmturley/angular-material-firebase.git"
   },
   "keywords": [
-    "angular",
+    "angularjs",
     "material",
     "design",
     "firebase"
@@ -22,9 +22,9 @@
   "author": "kmturley",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/kmturley/angular-material-firebase/issues"
+    "url": "https://github.com/kmturley/angularjs-material-firebase/issues"
   },
-  "homepage": "https://github.com/kmturley/angular-material-firebase#readme",
+  "homepage": "https://github.com/kmturley/angularjs-material-firebase#readme",
   "devDependencies": {
     "eslint": "^3.16.0",
     "eslint-config-google": "^0.7.1",
