@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Angular Material Firebase</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <base href="/">
+    <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons" />
+    <!-- build:css -->
+    <link rel="stylesheet" href="./src/components/all.css" />
+    <!-- endbuild -->
+</head>
+<body>
+    <md-toolbar layout="row" class="md-toolbar-tools toolbar">
+        <h1>Angular Material Firebase</h1>
+        <span flex></span>
+        <md-menu md-position-mode="target-right target" ng-if="auth.user">
+            <md-button class="md-icon-button user" aria-label="User" ng-click="$mdOpenMenu($event)">
+                <img ng-src="{{ auth.user.photo }}" alt="{{ auth.user.name }}" />
+            </md-button>
+            <md-menu-content width="4">
+                <md-menu-item>
+                    <md-button layout-fill md-ink-ripple ng-href="/user">My profile</md-button>
+                </md-menu-item>
+                <md-menu-item>
+                    <md-button layout-fill md-ink-ripple ng-click="auth.logout()">Logout</md-button>
+                </md-menu-item>
+            </md-menu-content>
+        </md-menu>
+        <md-button aria-label="Login" ng-show="!auth.user" ng-click="auth.login()">Login</md-button>
+    </md-toolbar>
+    <ng-view></ng-view>
+    <!-- build:js -->
+    <script src="//localhost:35729/livereload.js?snipver=1"></script>
+    <script src="../jspm_packages/system.js"></script>
+    <script src="../config.js"></script>
+    <script>
+        System.import('./src/components/all.js');
+    </script>
+    <!-- endbuild -->
+</body>
+</html>

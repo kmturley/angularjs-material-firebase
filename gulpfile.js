@@ -19,7 +19,8 @@ global.paths = {
     css: '/**/*.{css,scss}',
     js: '/**/*.{js,tpl}',
     html: '/**/*.html',
-    rootSCSS: '/components/all.scss'
+    rootJS: '/components/all.js',
+    rootSCSS: '/components/all.scss',
 };
 
 gulp.task('connect', function () {
@@ -38,7 +39,7 @@ gulp.task('css', function () {
         .pipe(mergeMediaQueries({log: true}))
         .pipe(autoprefixer({browsers: ['last 2 versions']}))
         .pipe(rename('all.css'))
-        .pipe(gulp.dest(global.paths.source + '/components'))
+        .pipe(gulp.dest(global.paths.destination + '/components'))
         .pipe(connect.reload())
         .on('error', function (error) {
             console.error('css error: ' + error);
@@ -48,7 +49,7 @@ gulp.task('css', function () {
 gulp.task('html', function () {
     'use strict';
     return gulp.src(global.paths.source + global.paths.html)
-        // .pipe(gulp.dest(global.paths.destination))
+        .pipe(gulp.dest(global.paths.destination))
         .pipe(connect.reload())
         .on('error', function (error) {
             console.error('html error: ' + error);
@@ -57,8 +58,13 @@ gulp.task('html', function () {
 
 gulp.task('js', function () {
     'use strict';
-    return gulp.src([global.paths.source + global.paths.js])
-        // .pipe(gulp.dest(global.paths.destination))
+    return gulp.src([global.paths.source + global.paths.rootJS])
+        .pipe(jspm({
+            minify: true,
+            selfExecutingBundle: true,
+            skipSourceMaps: true,
+        }))
+        .pipe(gulp.dest(global.paths.destination))
         .pipe(connect.reload())
         .on('error', function (error) {
             console.error('js error: ' + error);
