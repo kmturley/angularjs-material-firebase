@@ -104,11 +104,11 @@ gulp.task('build.html', function() {
     return gulp.src(global.paths.source + global.paths.html)
         .pipe(htmlReplace({
             'css': {
-                src: ['angularjs-material-firebase/dist/components/all.bundle.css'], // custom tags use [['{%', 'web/components/all.min.css', '%}']]
+                src: ['dist/components/all.bundle.css'], // custom tags use [['{%', 'web/components/all.min.css', '%}']]
                 tpl: '<link rel="stylesheet" href="%s" />', // custom tags use '<link rel="stylesheet" href="%s static \'%s\' %s" />'
             },
             'js': {
-                src: ['angularjs-material-firebase/dist/components/all.bundle.js'], // custom tags use [['{%', 'web/components/all.min.js', '%}']]
+                src: ['dist/components/all.bundle.js'], // custom tags use [['{%', 'web/components/all.min.js', '%}']]
                 tpl: '<script src="%s"></script>', // custom tags use  '<script src="%s static \'%s\' %s"></script>'
             },
         }))
