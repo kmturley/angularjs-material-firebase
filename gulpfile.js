@@ -36,7 +36,7 @@ gulp.task('connect', function() {
 gulp.task('compile.assets', function() {
     'use strict';
     return gulp.src([global.paths.source + '/assets/**/*'])
-        .pipe(gulp.dest(global.paths.destination + '/assets'))
+        .pipe(connect.reload())
         .on('error', function(error) {
             console.error('assets error: ' + error);
         });
@@ -93,7 +93,6 @@ gulp.task('build.css', function() {
         .pipe(autoprefixer({browsers: ['last 2 versions']}))
         .pipe(rename('all.bundle.css'))
         .pipe(gulp.dest(global.paths.destination + '/components'))
-        .pipe(connect.reload())
         .on('error', function(error) {
             console.error('build.css error: ' + error);
         });
@@ -117,7 +116,6 @@ gulp.task('build.html', function() {
             //ignoreCustomFragments: [ (/\{\%[^\%]*?\%\}(\s)?/g) ] // custom tags use
         }))
         .pipe(gulp.dest(global.paths.destination))
-        .pipe(connect.reload())
         .on('error', function(error) {
             console.error('build.html error: ' + error);
         });
@@ -132,7 +130,6 @@ gulp.task('build.js', function() {
             skipSourceMaps: true,
         }))
         .pipe(gulp.dest(global.paths.destination + '/components'))
-        .pipe(connect.reload())
         .on('error', function(error) {
             console.error('build.js error: ' + error);
         });
