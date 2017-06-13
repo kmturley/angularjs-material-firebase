@@ -32,6 +32,7 @@
     "gulp-autoprefixer": "^3.1.1",
     "gulp-connect": "^5.0.0",
     "gulp-html-replace": "^1.6.2",
+    "gulp-htmlmin": "^3.0.0",
     "gulp-jspm": "^0.5.13",
     "gulp-merge-media-queries": "^0.2.1",
     "gulp-rename": "^1.2.2",
